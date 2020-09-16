@@ -11,12 +11,12 @@ def merge(arrA, arrB):
         # if index at b is out of range, insert from a
         if a > len(arrA) - 1:
             merged_arr[i] = arrB[b]
-            # increment ib
+            # increment b
             b += 1
         # flipped case for above
         elif b > len(arrB) - 1:
             merged_arr[i] = arrA[a]
-            # increment ia
+            # increment a
             a += 1
         # if current index in a is smaller than b, then insert from list a
         elif arrA[a] < arrB[b]:
@@ -33,19 +33,11 @@ def merge(arrA, arrB):
 # TO-DO: implement the Merge Sort function below recursively
 def merge_sort(arr):
     # Your code here
-    # Base case for recursion
-    if len(arr) <= 1:
-        return arr
-    else:
-        # split the array in half
+    if len(arr) > 1:
         mid = len(arr) // 2
-        # sort left side of array
-        left = merge_sort(arr[:mid])
-        # sort right of array
-        right = merge_sort(arr[mid:])
-        # merge arrays back together with helper function from above
+        right = merge_sort(arr[:mid])
+        left = merge_sort(arr[mid:])
         arr = merge(left, right)
-
     return arr
 
 # STRETCH: implement the recursive logic for merge sort in a way that doesn't 
