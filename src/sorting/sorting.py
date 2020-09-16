@@ -9,12 +9,12 @@ def merge(arrA, arrB):
     # loop through new array
     for i in range(len(merged_arr)):
         # if index at b is out of range, insert from a
-        if a > len(arrA) - 1:
+        if a >= len(arrA):
             merged_arr[i] = arrB[b]
             # increment b
             b += 1
         # flipped case for above
-        elif b > len(arrB) - 1:
+        elif b >= len(arrB):
             merged_arr[i] = arrA[a]
             # increment a
             a += 1
@@ -23,7 +23,7 @@ def merge(arrA, arrB):
             merged_arr[i] = arrA[a]
             a += 1
         # flipped case for above
-        elif arrB[b] < arrA[a]:
+        else:
             merged_arr[i] = arrB[b]
             b += 1
 
